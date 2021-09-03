@@ -103,41 +103,74 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+//	[0] = "#3b4252", /* black   */
+//	[1] = "#bf616a", /* red     */
+//	[2] = "#a3be8c", /* green   */
+//	[3] = "#ebcb8b", /* yellow  */
+//	[4] = "#81a1c1", /* blue    */
+//	[5] = "#b48ead", /* magenta */
+//	[6] = "#88c0d0", /* cyan    */
+//	[7] = "#e5e9f0", /* white   */
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+//	[8]  = "#4c566a", /* black   */
+//	[9]  = "#bf616a", /* red     */
+//	[10] = "#a3be8c", /* green   */
+//	[11] = "#ebcb8b", /* yellow  */
+//	[12] = "#81a1c1", /* blue    */
+//	[13] = "#b48ead", /* magenta */
+//	[14] = "#8fbcbb", /* cyan    */
+//	[15] = "#eceff4", /* white   */
+
+//	/* special colors */
+//	[256] = "#222222", /* background */
+//	[257] = "#d8dee9", /* foreground */
+
+	/* 8 normal colors */
+	[0] = "#323437", /* black   */
+	[1] = "#ff5454", /* red     */
+	[2] = "#8cc85f", /* green   */
+	[3] = "#e3c78a", /* yellow  */
+	[4] = "#80a0ff", /* blue    */
+	[5] = "#d183e8", /* magenta */
+	[6] = "#79dac8", /* cyan    */
+	[7] = "#a1aab8", /* white   */
+
+	/* 8 bright colors */
+	[8]  = "#7c8f8f", /* black   */
+	[9]  = "#ff5189", /* red     */
+	[10] = "#36c692", /* green   */
+	[11] = "#bfbf97", /* yellow  */
+	[12] = "#74b2ff", /* blue    */
+	[13] = "#ae81ff", /* magenta */
+	[14] = "#85dc85", /* cyan    */
+	[15] = "#e2637f", /* white   */
 
 	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+	/* special colors */
+	[256] = "#282a36", /* background */
+	[257] = "#f8f8f2", /* foreground */
+	[258] = "#222222",
+	[259] = "#eeeeee",
 };
-
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 259;
+unsigned int defaultbg = 258;
+static unsigned int defaultcs = 259;
+static unsigned int defaultrcs = 258;
+
+/*
++ * Colors used, when the specific fg == defaultfg. So in reverse mode this
++ * will reverse too. Another logic would only make the simple feature too
++ * complex.
++ */
+unsigned int defaultitalic = 7;
+unsigned int defaultunderline = 7;
 
 /*
  * Default style of cursor
